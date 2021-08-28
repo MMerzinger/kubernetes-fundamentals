@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: task-5
+  labels:
+    type: update
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: update
+  template:
+    metadata:
+      labels:
+        type: update
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.18

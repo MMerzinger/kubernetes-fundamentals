@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: task-4
+  labels:
+    type: scaling
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: scaling
+  template:
+    metadata:
+      labels:
+        type: scaling
+    spec:
+      containers:
+      - name: nginx
+        image: nginx

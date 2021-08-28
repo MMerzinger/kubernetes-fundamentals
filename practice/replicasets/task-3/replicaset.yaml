@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: task-3
+  labels:
+    environment: dev
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      environment: dev
+  template:
+    metadata:
+      labels:
+        environment: dev
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
