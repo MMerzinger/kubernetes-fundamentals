@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ?
+metadata:
+  name: task-1
+  labels:
+    tier: webserver
+spec:
+  replicas: ?
+  selector:
+    matchLabels:
+      tier: webserver
+  template:
+    metadata:
+      labels:
+        tier: webservr
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
