@@ -21,9 +21,16 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/examples/master/gu
 kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/azure-vote-all-in-one-redis.yaml
 ```
 4. Check if everything is up and running
-5. Deploy ingress spec
-6. Test routes
-
+```bash
+kubectl get po
+```
+5. Setup and deploy ingress spec
+```bash
+kubectl get svc -n ingress-nginx ingress-nginx-controller -o=jsonpath="{.status.loadBalancer.ingress[0].ip}"
+# Setup host in ingress.yaml
+kubectl apply -f ingress.yaml
+```
+6. Test hosts by visiting the nip.io url.
 
 ## Cleanup
 

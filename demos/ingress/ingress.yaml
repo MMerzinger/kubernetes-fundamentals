@@ -5,18 +5,22 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
-  - hosts: <TODO> 
+  - host : guest-IP.nip.io
     http:
       paths:
-      - path: /guest
+      - path: /
         pathType: Prefix
         backend:
           service:
             name: frontend
             port:
               number: 80
-      - path: /vote
+  - host : vote-IP.nip.io
+    http:
+      paths:
+      - path: /
         pathType: Prefix
         backend:
           service:
