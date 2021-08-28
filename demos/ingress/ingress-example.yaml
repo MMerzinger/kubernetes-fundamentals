@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - host : example.com
+    http:
+      paths:
+      - path: /guest
+        pathType: Prefix
+        backend:
+          service:
+            name: guest-service
+            port:
+              number: 80
+      - path: /vote
+        pathType: Prefix
+        backend:
+          service:
+            name: vote-service
+            port:
+              number: 80
+
+              
