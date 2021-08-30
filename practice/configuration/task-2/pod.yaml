@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: task-2-cm
+spec:
+  volumes:
+  - name: html
+    configMap:
+      name: cm-from-file
+  containers:
+  - image: marcmer/demo-app:v1
+    name: demo-app
+    volumeMounts:
+    - name: html
+      mountPath: /public
+      readOnly: true
+    ports:
+    - containerPort: 8000
+      name: http
+  
+  
