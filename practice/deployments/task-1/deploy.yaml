@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: task-1
+  name: task-1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: task-1
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: task-1
+    spec:
+      containers:
+      - image: marcmer/demo-app:v1
+        name: demo-app
+        ports:
+        - containerPort: 8000
+          name: http
+        readinessProbe:
+          httpGet:
+            port: 8000
+        livenessProbe:
+          httpGet:
+            port: 8000
