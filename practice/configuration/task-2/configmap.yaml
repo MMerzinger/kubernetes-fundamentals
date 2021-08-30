@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cm-from-file
+data:
+  index.html: |-
+    <!DOCTYPE html>
+    <html>
+
+    <body>
+        <h1>My Website!</h1>
+        <p>Using a ConfigMap.</p>
+    </body>
+
+    </html>
+
+    

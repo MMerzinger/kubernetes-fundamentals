@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: task-4-secret-volume
+spec:
+  volumes:
+  - name: secrets
+    secret:
+      secretName: simple-volume-secret
+  containers:
+  - image: ubuntu
+    name: ubuntu
+    volumeMounts: 
+    - name: secrets
+      mountPath: /tmp/secret
+    command:
+    - "/bin/bash"
+    - "-c"
+    args:
+    - "while true; do cat /tmp/secret/SECRET_KEY; sleep 1; done"
+  
