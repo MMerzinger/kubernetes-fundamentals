@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: task-2
+  name: task-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: task-2
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: task-2
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        ports:
+        - containerPort: 80
+          name: http
+
