@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: security-pod
+  name: security-pod
+spec:
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 55555
+    runAsGroup: 55555
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+  - image: marcmer/demo-app:v1
+    name: demo-app
+    securityContext:
+      allowPrivilegeEscalation: false
+      runAsNonRoot: true
+      runAsUser: 55555
+      runAsGroup: 55555
+      seccompProfile: 
+        type: RuntimeDefault
+      capabilities:
+        drop:
+        - ALL
+      readOnlyRootFilesystem: true
+      privileged: false
+

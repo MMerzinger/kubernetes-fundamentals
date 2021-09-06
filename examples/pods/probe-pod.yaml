@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: probe-pod
+  name: probe-pod
+  annotations:
+    hint: "Just an example, don`t use these probes like this in production"
+spec:
+  containers:
+  - image: nginx
+    name: demo-app
+    ports:
+    - containerPort: 80
+      name: http
+    readinessProbe:
+      httpGet:
+        port: http
+    livenessProbe:
+      exec:
+        command: 
+        - echo
+        - "healthy"
+    startupProbe:
+      tcpSocket:
+        port: http
+      initialDelaySeconds: 3
+      periodSeconds: 5
+

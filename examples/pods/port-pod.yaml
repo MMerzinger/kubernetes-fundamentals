@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: port-pod
+  name: port-pod
+spec:
+  containers:
+  - image: marcmer/demo-app:v1
+    name: demo-app
+    ports:
+    - containerPort: 8000
+      name: http
+
