@@ -9,7 +9,6 @@ spec:
   selector:
     matchLabels:
       app: task-3
-  strategy: {}
   template:
     metadata:
       labels:
