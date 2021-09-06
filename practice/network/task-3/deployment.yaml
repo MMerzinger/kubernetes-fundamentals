@@ -2,18 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: task-2
-  name: task-2
+    app: task-3
+  name: task-3
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: task-2
-  strategy: {}
+      app: task-3
   template:
     metadata:
       labels:
-        app: task-2
+        app: task-3
     spec:
       containers:
       - image: nginx

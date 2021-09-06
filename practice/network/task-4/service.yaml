@@ -2,14 +2,14 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: task-3
-  name: task-3
+    app: task-4
+  name: task-4
 spec:
   ports:
   - name: http
     port: 8080
     protocol: TCP
-    targetPort: 80
+    targetPort: 8000
   selector:
-    app: task-3
+    app: task-4
   type: LoadBalancer
