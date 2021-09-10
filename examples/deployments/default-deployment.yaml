@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: example
+    environment: development
+  name: example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example
+      environment: development
+  template:
+    metadata:
+      labels:
+        app: example
+        environment: development
+    spec:
+      containers:
+      - image: marcmer/demo-app:v1
+        name: demo-app
+
+

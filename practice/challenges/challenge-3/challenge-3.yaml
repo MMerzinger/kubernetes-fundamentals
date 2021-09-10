@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: challenge-3
+  name: challenge-3
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: challenge-3
+  template:
+    metadata:
+      labels:
+        app: challenge-3
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources:
+          requests:
+            memory: 250M
+            cpu: "0.5"
+          limits:
+            memory: 500M
+            cpu: "1"

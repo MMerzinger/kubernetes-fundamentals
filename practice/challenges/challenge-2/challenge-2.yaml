@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: challenge-2
+  name: challenge-2
+spec:
+  containers:
+  - image: marcmer/demo-app:v3
+    name: challenge-2

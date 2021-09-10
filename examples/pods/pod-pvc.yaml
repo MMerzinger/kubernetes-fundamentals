@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-pod-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 50M
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: pvc-pod
+  name: pvc-pod
+spec:
+  volumes:
+  - name: data
+    persistentVolumeClaim:
+      claimName: pvc-pod-claim
+  containers:
+  - image: ubuntu
+    name: ubuntu
+    volumeMounts:
+    - name: data
+      mountPath: /data
+    command:
+    - "/bin/bash"
+    - "-c"
+    args:
+    - "touch /data/HELLO && sleep 3600"
+
+
