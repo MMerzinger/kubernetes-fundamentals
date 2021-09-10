@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: challenge-4
+  name: challenge-4
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: challenge-4
+  template:
+    metadata:
+      labels:
+        app: challenge-4
+    spec:
+      containers:
+      - image: marcmer/demo-app:v1
+        name: demo-app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: challenge-4
+  name: challenge-4
+spec:
+  ports:
+  - name: 8000-8000
+    port: 8000
+    protocol: TCP
+    targetPort: 8000
+  selector:
+    app: challenge-4
+  type: ClusterIP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: challenge-4-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: <INGRESS-IP>.nip.io
+    http:
+      paths:
+      - path: /status
+        pathType: Prefix
+        backend:
+          service:
+            name: challenge-4
+            port:
+              number: 8000

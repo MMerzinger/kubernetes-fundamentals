@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: hidden
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: challenge-1
+  name: challenge-1
+  namespace: hidden
+spec:
+  containers:
+  - image: nginx
+    name: challenge-1

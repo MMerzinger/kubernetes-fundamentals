@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    environment: development
+  name: example-pod
+spec:
+  containers:
+  - image: marcmer/demo-app:v1
+    name: demo-app
+

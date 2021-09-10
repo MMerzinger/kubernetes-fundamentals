@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: challenge-5
+  name: challenge-5
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: challenge-5
+  template:
+    metadata:
+      labels:
+        app: challenge-5
+    spec:
+      containers:
+      - image: marcmer/demo-app:v1
+        name: demo-app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: challenge-5
+  name: challenge-5
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 8000
+  selector:
+    app: challenge-6
+  type: LoadBalancer

