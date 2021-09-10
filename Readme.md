@@ -16,17 +16,24 @@ The following output of `tree -L 2` shows the folder structure of this repo:
 .
 ├── LICENSE
 ├── Readme.md
-├── demos --> Used for demo materials
-│   ├── apps
-│   └── ingress
-├── examples --> Used for examples shown on the slides
-│   └── network
-└── practice --> Used for the practice tasks for each chapter
+├── demos  --> Used for demos
+│   ├── apps
+│   └── ingress
+├── examples --> Used for examples in slides 
+│   ├── deployments
+│   ├── network
+│   └── pods
+└── practice --> Your practice tasks
+    ├── challenges
     ├── configuration
     ├── deployments
     ├── ingress
     ├── network
     ├── pods
+    ├── pods2
     └── replicasets
 ```
 
+## License
+
+MIT: https://marcm.mit-license.org
