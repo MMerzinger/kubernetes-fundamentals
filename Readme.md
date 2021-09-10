@@ -4,7 +4,7 @@
 
 This repository contains the accompanying practice tasks for the Kubernetes Fundamentals course. 
 
-To follow along the practice tasks, please make sure to setup `kubectl` as explained in the initial mail:
+To follow along the practice tasks, please make sure to setup `kubectl` as explained in the initial mail using one of those two options:
 1. Install `kubectl` locally using the [docs](https://kubernetes.io/docs/tasks/tools/)
 2. Register and start [Gitpod](https://gitpod.io/#https://github.com/MMerzinger/kubernetes-fundamentals)
 
