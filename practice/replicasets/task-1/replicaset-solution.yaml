@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: task-2
+  name: task-1
   labels:
-    tier: frontend
+    tier: webserver
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      tier: frontend
+      tier: webserver
   template:
     metadata:
       labels:
-        tier: frontend
+        tier: webserver
     spec:
       containers:
       - name: nginx
