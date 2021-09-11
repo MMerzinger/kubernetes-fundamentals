@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: task-4
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: task-4-ns-pod
+  namespace: task-4
+spec:
+  containers:
+  - image: nginx
+    name: nginx
