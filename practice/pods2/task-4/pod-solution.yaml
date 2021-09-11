@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: task-4
+spec:
+  containers:
+  - image: ubuntu
+    name: ubuntu
+    command:
+    - "/bin/bash"
+    - "-c"
+    args:
+    - sleep 3600
+    securityContext:
+      runAsUser: 1000
