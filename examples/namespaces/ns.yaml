@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: demo
+  annotations:
+    description: "This is a demo namespace"
+
