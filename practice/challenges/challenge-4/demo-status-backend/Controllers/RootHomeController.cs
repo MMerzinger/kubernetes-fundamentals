@@ -6,12 +6,12 @@ using Microsoft.Extensions.Logging;
 namespace demo_status_backend.Controllers
 {
     [ApiController]
-    [Route("/status/who")]
-    public class StatusController : ControllerBase
+    [Route("/")]
+    public class RootHomeController : ControllerBase
     {
-        private readonly ILogger<StatusController> _logger;
+        private readonly ILogger<RootHomeController> _logger;
 
-        public StatusController(ILogger<StatusController> logger)
+        public RootHomeController(ILogger<RootHomeController> logger)
         {
             _logger = logger;
         }
@@ -19,7 +19,7 @@ namespace demo_status_backend.Controllers
         [HttpGet]
         public String Get()
         {
-            return String.Concat("Greetings from ", Dns.GetHostName(), " under /status/who");
+            return String.Concat("Greetings from ", Dns.GetHostName(), " under /");
         }
     }
 }
