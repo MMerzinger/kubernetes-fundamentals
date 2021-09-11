@@ -6,7 +6,7 @@ metadata:
   name: task-1
 spec:
   ports:
-  - port: 8000
+  - port: 80
     protocol: TCP
     targetPort: 8000
   selector:
