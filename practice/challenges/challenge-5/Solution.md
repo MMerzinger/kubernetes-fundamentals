@@ -1,0 +1,3 @@
+# Solution
+
+The selector of the service "challenge-5" does not match the labels of the deployment "challenge-5". You need to update the selector to use the label "challenge-5" instead of "challenge-6". This branch contains a correct version. Go on and deploy it with `kubectl apply -f .` and validate that everyting works properly. To do so get the public IP of the service with `kubectl get svc` and open it in the browser under port 80.

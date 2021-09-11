@@ -31,5 +31,5 @@ spec:
     protocol: TCP
     targetPort: 8000
   selector:
-    app: challenge-6
+    app: challenge-5
   type: LoadBalancer
