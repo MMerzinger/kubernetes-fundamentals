@@ -19,7 +19,7 @@ namespace demo_status_backend.Controllers
         [HttpGet]
         public String Get()
         {
-            return String.Concat("Greetings from ", Dns.GetHostName());
+            return String.Concat("Greetings from ", Dns.GetHostName(), " under /status");
         }
     }
 }
