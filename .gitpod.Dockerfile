@@ -10,4 +10,4 @@ RUN sudo apt-get update && \
     chmod 700 get_helm.sh && \
     sudo ./get_helm.sh
 
-RUN echo 'export KUBECONFIG="/workspace/kubernetes-fundamentals"' >> /home/gitpod/.bashrc
+RUN echo 'export KUBECONFIG="/workspace/kubernetes-fundamentals/kube-config.yaml"' >> /home/gitpod/.bashrc
