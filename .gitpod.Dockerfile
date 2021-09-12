@@ -7,4 +7,4 @@ RUN sudo apt-get update && \
     sudo apt-get update && \
     sudo apt-get install -y kubectl
 
-RUN echo 'export KUBECONFIG="/home/gitpod/kube-config.yaml"' >> /home/gitpod/.bashrc
+RUN echo 'export KUBECONFIG="/workspace/kubernetes-fundamentals"' >> /home/gitpod/.bashrc
