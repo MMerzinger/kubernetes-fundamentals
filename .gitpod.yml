@@ -1,2 +1,6 @@
 image:
   file: .gitpod.Dockerfile
+
+tasks:
+  - name: Setup kubectl tab completion
+    command: kubectl completion bash >> $HOME/.bashrc
