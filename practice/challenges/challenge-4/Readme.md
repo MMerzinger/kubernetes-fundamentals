@@ -8,7 +8,7 @@ This folder contains a .NET Core application. Build this application and push it
 For those that do not have Docker: Use the image marcmer/demo-app:v1
 
 Create a deployment of 3 replicas for this image and name it «challenge-5». Next create a service of type ClusterIP with port 8000 mapping to port 8000. Deploy and expose this deployment via Ingress under the host `<YOUR_INGRESS_IP>.nip.io` and path `/status`. After you deployed the resources, check the result.
-- Templates can be found under `challenge-4.yaml`
+- Templates can be found under `challenge-4.yaml` - be aware that these are incomplete and you need to add some details to them to work
 - Get your ingress IP via `kubectl get svc –n ingress-nginx`
 - Help: https://kubernetes.io/docs/concepts/services-networking/ingress/ 
 
