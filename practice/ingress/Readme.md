@@ -77,7 +77,7 @@ kubectl delete -f https://raw.githubusercontent.com/Azure-Samples/azure-voting-a
 
 kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.0/deploy/static/provider/cloud/deploy.yaml
 
-kubectl delete ingress.yaml
+kubectl delete -f ingress.yaml
 ```
 
 ## Licensing Notes
