@@ -1,8 +1,11 @@
 FROM docker.io/joseluisq/static-web-server:2.0.2
 
+ARG VERSION
+
 ENV SERVER_PORT=8000
 ENV SERVER_LOG_LEVEL=debug
 ENV SERVER_LOG_REMOTE_ADDRESS=true
+ENV SERVER_CACHE_CONTROL_HEADERS=false
 USER 55555:55555
-COPY ./content/v1 /public
+COPY ./content/$VERSION /public
 
