@@ -7,16 +7,16 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host : guest-IP.nip.io
+  - host : book-IP.nip.io
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: frontend
+            name: productpage
             port:
-              number: 80
+              number: 9080
   - host : vote-IP.nip.io
     http:
       paths:

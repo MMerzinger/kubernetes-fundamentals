@@ -10,11 +10,11 @@ spec:
   - host : example.com
     http:
       paths:
-      - path: /guest
+      - path: /book
         pathType: Prefix
         backend:
           service:
-            name: guest-service
+            name: book-service
             port:
               number: 80
       - path: /vote

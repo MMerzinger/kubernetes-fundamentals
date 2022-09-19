@@ -1,7 +1,7 @@
 # Ingress Demo
 
 This demo uses the following two applications to demonstrate the ingress concept of Kubernetes:
-- [Guestbook](https://github.com/kubernetes/examples/blob/master/guestbook/all-in-one/guestbook-all-in-one.yaml) application from the [Kubernetes examples](https://github.com/kubernetes/examples) repository. It is licensed under [Apache License 2.0](https://github.com/kubernetes/examples/blob/master/LICENSE).
+- [Bookinfo](https://github.com/istio/istio/tree/release-1.15/samples/bookinfo/platform/kube) application from the [Istio](https://github.com/istio/istio/tree/master) repository. It is licensed under [Apache License 2.0](https://github.com/istio/istio/blob/master/LICENSE).
 - [Azure Voting App](https://github.com/Azure-Samples/azure-voting-app-redis/blob/master/azure-vote-all-in-one-redis.yaml) application from the [Azure Voting App](https://github.com/Azure-Samples/azure-voting-app-redis) repository. It is licensed under [MIT License](https://github.com/Azure-Samples/azure-voting-app-redis/blob/master/LICENSE).
 
 ## Setup
@@ -12,9 +12,9 @@ It is a minimal demo, hence no namespace etc. are used. Resources are deployed a
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.0/deploy/static/provider/cloud/deploy.yaml
 ```
-2. Create the guestbook application
+2. Create the bookinfo application
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/examples/master/guestbook/all-in-one/guestbook-all-in-one.yaml
+kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.15/samples/bookinfo/platform/kube/bookinfo.yaml
 ```
 3. Create the Azure Voting app
 ```bash
@@ -35,7 +35,7 @@ kubectl apply -f ingress.yaml
 ## Cleanup
 
 ```bash
-kubectl delete -f https://raw.githubusercontent.com/kubernetes/examples/master/guestbook/all-in-one/guestbook-all-in-one.yaml
+kubectl delete -f https://raw.githubusercontent.com/istio/istio/release-1.15/samples/bookinfo/platform/kube/bookinfo.yaml
 
 kubectl delete -f https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/azure-vote-all-in-one-redis.yaml
 
