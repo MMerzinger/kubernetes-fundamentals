@@ -19,10 +19,10 @@ kubectl get po -n ingress-nginx
 kubectl get svc -n ingress-nginx ingress-nginx-controller -o=jsonpath="{.status.loadBalancer.ingress[0].ip}"
 ```
 
-2. Create the guestbook application
+2. Create the bookinfo application
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/examples/master/guestbook/all-in-one/guestbook-all-in-one.yaml
+kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.15/samples/bookinfo/platform/kube/bookinfo.yaml
 ```
 
 3. Create the Azure Voting app
@@ -46,12 +46,12 @@ Use the following resources to do so:
 
 - Check which services are used to access these applications (`kubectl get svc`)
 - Use these hosts for the ingress.yaml. Replace "IP" with the public IP provided by Step 1.
-  - Guestbook: guest-IP.nip.io (path: /)
+  - Guestbook: book-IP.nip.io (path: /)
   - Azure-Vote-App: vote-IP.nip.io (path: /)
   - For example: vote-20.101.26.235.nip.io
 - Create an ingress resource with the help of [Ingress Documentation](https://kubernetes.io/docs/concepts/services-networking/ingress/)
   - Use the following services and ports:
-    - Service: frontend, Port: 80
+    - Service: productpage, Port: 9080
     - Service: azure-vote-front, Port: 80
 
 5. Deploy the ingress spec
@@ -71,7 +71,7 @@ Congratulations! You app is successfully exposed to the web via your Ingress Con
 ## Cleanup
 
 ```bash
-kubectl delete -f https://raw.githubusercontent.com/kubernetes/examples/master/guestbook/all-in-one/guestbook-all-in-one.yaml
+kubectl delete -f https://raw.githubusercontent.com/istio/istio/release-1.15/samples/bookinfo/platform/kube/bookinfo.yaml
 
 kubectl delete -f https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/azure-vote-all-in-one-redis.yaml
 
@@ -83,6 +83,6 @@ kubectl delete -f ingress.yaml
 ## Licensing Notes
 
 This practice task uses the following two applications to demonstrate the ingress concept of Kubernetes:
-- [Guestbook](https://github.com/kubernetes/examples/blob/master/guestbook/all-in-one/guestbook-all-in-one.yaml) application from the [Kubernetes examples](https://github.com/kubernetes/examples) repository. It is licensed under [Apache License 2.0](https://github.com/kubernetes/examples/blob/master/LICENSE).
+- [Bookinfo](https://github.com/istio/istio/tree/release-1.15/samples/bookinfo/platform/kube) application from the [Istio](https://github.com/istio/istio/tree/master) repository. It is licensed under [Apache License 2.0](https://github.com/istio/istio/blob/master/LICENSE).
 - [Azure Voting App](https://github.com/Azure-Samples/azure-voting-app-redis/blob/master/azure-vote-all-in-one-redis.yaml) application from the [Azure Voting App](https://github.com/Azure-Samples/azure-voting-app-redis) repository. It is licensed under [MIT License](https://github.com/Azure-Samples/azure-voting-app-redis/blob/master/LICENSE).
 
