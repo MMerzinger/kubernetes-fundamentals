@@ -5,12 +5,15 @@ metadata:
     app: task-1
   name: task-1
 spec:
-  replicas: 3
+  replicas: 6
   selector:
     matchLabels:
       app: task-1
   strategy:
     type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 0
   template:
     metadata:
       labels:
@@ -23,6 +26,7 @@ spec:
         - containerPort: 8000
           name: http
         readinessProbe:
+          initialDelaySeconds: 5
           httpGet:
             port: 8000
         livenessProbe:
