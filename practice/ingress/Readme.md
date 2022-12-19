@@ -46,10 +46,10 @@ Use the following resources to do so:
 
 - Check which services are used to access these applications (`kubectl get svc`)
 - Use these hosts for the ingress.yaml. Replace "IP" with the public IP provided by Step 1.
-  - Guestbook: book-IP.nip.io (path: /)
+  - Bookinfo: book-IP.nip.io (path: /)
   - Azure-Vote-App: vote-IP.nip.io (path: /)
   - For example: vote-20.101.26.235.nip.io
-- Create an ingress resource with the help of [Ingress Documentation](https://kubernetes.io/docs/concepts/services-networking/ingress/)
+- Create an ingress resource with the help of [Ingress Documentation](https://kubernetes.io/docs/concepts/services-networking/ingress/) or just use the provided template.
   - Use the following services and ports:
     - Service: productpage, Port: 9080
     - Service: azure-vote-front, Port: 80
