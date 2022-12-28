@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service?
+metadata:
+  name: task-1
+automountServiceAccountToken: true
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: task-1
+spec:
+  containers:
+  - image: nginx
+    name: task-1
+  serviceAccountName: task-1
