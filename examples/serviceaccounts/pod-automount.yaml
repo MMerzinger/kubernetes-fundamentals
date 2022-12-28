@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webserver-pod
+spec:
+  containers:
+  - image: nginx
+    imagePullPolicy: Always
+    name: webserver-pod
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-k7mlv
+      readOnly: true
+  serviceAccount: webserver-sa
+  serviceAccountName: webserver-sa
+  volumes:
+  - name: kube-api-access-k7mlv
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace

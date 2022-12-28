@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: task-4
+spec:
+  containers:
+  - image: nginx
+    name: task-4
+  serviceAccountName: task-4
+  

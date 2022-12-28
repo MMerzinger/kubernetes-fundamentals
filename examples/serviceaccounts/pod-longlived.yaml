@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: long-lived-pod
+spec:
+  containers:
+  - image: nginx
+    name: long-lived-container
+  serviceAccountName: long-lived-sa
