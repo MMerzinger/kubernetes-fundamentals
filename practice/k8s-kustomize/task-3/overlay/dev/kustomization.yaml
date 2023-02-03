@@ -3,4 +3,26 @@ kind: Kustomization
 resources:
   - ../../base/
 
+configMapGenerator:
+  - name: config
+    files:
+      - config.yaml
 
+patches:
+  - patch: |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: task-3
+      spec:
+        template:
+          spec:
+            volumes:
+              - name: config
+                configMap:
+                  name: config
+            containers:
+              - name: task-3
+                volumeMounts:
+                  - name: config
+                    mountPath: /etc/app/config/
