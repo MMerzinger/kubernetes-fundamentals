@@ -1,0 +1,5 @@
+server:
+  port: 8443
+  hostname: demo
+hint:
+  description: "This is just random config, the goal is to get it into the container"

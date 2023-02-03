@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: task-4
+  name: task-4
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: task-4
+  template:
+    metadata:
+      labels:
+        app: task-4
+    spec:
+      containers:
+      - image: nginx
+        name: task-4
