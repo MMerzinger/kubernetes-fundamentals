@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - namespace.yaml
+  - ../../base/
+
+images:
+  - name: nginx
+    newTag: "1.19"
+
+replicas:
+- name: task-4
+  count: 3

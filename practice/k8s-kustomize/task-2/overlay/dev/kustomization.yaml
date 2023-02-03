@@ -3,4 +3,7 @@ kind: Kustomization
 resources:
   - ../../base/
 
+commonLabels:
+  env: dev
 
+nameSuffix: -dev
