@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: load-generator-task-3
+spec:
+  containers:
+  - args:
+    - /bin/sh
+    - -c
+    - while sleep 0.01; do wget -q -O- http://task-3; done
+    image: busybox:1.28
+    name: load-generator-task-3
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
+  

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: task-3
+  name: task-3
+spec:
+  selector:
+    matchLabels:
+      app: task-3
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: task-3
+    spec:
+      containers:
+      - name: php-apache
+        image: registry.k8s.io/hpa-example
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 300m
+          requests:
+            cpu: 150m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: task-3
+  name: task-3
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: task-3
+  type: ClusterIP
