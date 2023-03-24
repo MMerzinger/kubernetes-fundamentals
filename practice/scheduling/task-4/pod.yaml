@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: task-4
+spec:
+  tolerations: ?
+  containers:
+  - name: task-4
+    image: nginx

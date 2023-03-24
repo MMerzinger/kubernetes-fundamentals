@@ -1,0 +1,18 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pod-with-topology-spread-constraint
+  labels:
+    app: demo
+spec:
+  topologySpreadConstraints:
+  - maxSkew: 1
+    topologyKey: topology.kubernetes.io/zone
+    whenUnsatisfiable: DoNotSchedule
+    labelSelector:
+      matchLabels:
+        app: demo
+  containers:
+  - name: pod-with-topology-spread-constraint
+    image: nginx
+

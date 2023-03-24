@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Node
+metadata:
+  name: example-aks-node
+  labels:
+    topology.kubernetes.io/region: northeurope
+    topology.kubernetes.io/zone: "0"
+    more: labels-skipped
+spec:
+  taints:
+  - effect: NoSchedule
+    key: reserved
+    value: k8s-participant
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-with-tolerations
+spec:
+  tolerations:
+  - key: reserved
+    operator: "Exists"
+    effect: "NoSchedule"
+  containers:
+  - name: pod-with-tolerations
+    image: nginx
+
