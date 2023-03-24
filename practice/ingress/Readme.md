@@ -8,7 +8,7 @@ Please follow these steps to create your own Ingress Controller as well as sampl
 
 1. Create the ingress controller. We will rely on [NGNIX](https://kubernetes.github.io/ingress-nginx/deploy/) as the Ingress Controller
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.0/deploy/static/provider/cloud/deploy.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.6.4/deploy/static/provider/cloud/deploy.yaml
 ```
 
 Shortly after the deployment the Ingress Controller should be up and running. You can check this by running the following commands:
@@ -75,7 +75,7 @@ kubectl delete -f https://raw.githubusercontent.com/istio/istio/release-1.15/sam
 
 kubectl delete -f https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/azure-vote-all-in-one-redis.yaml
 
-kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.0/deploy/static/provider/cloud/deploy.yaml
+kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.6.4/deploy/static/provider/cloud/deploy.yaml
 
 kubectl delete -f ingress.yaml
 ```
