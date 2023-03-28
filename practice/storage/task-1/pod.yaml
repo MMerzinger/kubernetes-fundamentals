@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: task-1
+spec:
+  volumes:
+  - name: data
+    ?
+  containers:
+  - image: ubuntu
+    name: ubuntu
+    volumeMounts:
+    - name: data
+      mountPath: ?
+    command:
+    - "/bin/bash"
+    - "-c"
+    args:
+    - "echo Pod started on $(date) >> /data/history && sleep 3600"
+
+
