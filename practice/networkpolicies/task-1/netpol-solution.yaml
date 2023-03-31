@@ -1,0 +1,47 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: task-1-deny-all-please-ignore
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
+---
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: task-1-client-network-policy
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: client
+  policyTypes:
+  - Egress
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          app.kubernetes.io/name: webserver
+    ports:
+    - protocol: TCP
+      port: 80
+---
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: task-1-allow-webserver-to-receive-traffic-from-client
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: webserver
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app.kubernetes.io/name: client
+    ports:
+    - protocol: TCP
+      port: 80
