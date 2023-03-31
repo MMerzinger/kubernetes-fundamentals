@@ -1,0 +1,33 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: task-2-client-network-policy
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: client
+  policyTypes:
+  - Egress
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          namespace: demo
+    - podSelector:
+        matchLabels:
+          app.kubernetes.io/name: webserver
+---
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: task-2-allow-webserver-to-receive-traffic-from-client
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: webserver
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: 0.0.0.0/0
