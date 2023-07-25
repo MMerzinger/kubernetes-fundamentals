@@ -12,7 +12,7 @@ spec:
     - containerPort: 8000
       name: http
   - image: nginx
-    name: nginx
+    name: second
     ports:
     - containerPort: 80
       name: http
