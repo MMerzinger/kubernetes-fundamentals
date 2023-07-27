@@ -30,6 +30,6 @@ resources:
   - ../../base/
 ```
 
-Finally we can deploy via `kubectl apply -n -k overlay/test`. Verify if the configMap was created via `kubectl get cm` and check if it was mounted properly via `kubectl get po -o yaml`.
+Finally we can deploy via `kubectl apply -k overlay/test`. Verify if the configMap was created via `kubectl get cm` and check if it was mounted properly via `kubectl get po -o yaml`.
 
 __Important note__: There are lots of ways in achieving the same result with Kustomize. But: There are different implications. Goal of these tasks were to show you different ways of using and structuring your kustomization code.
