@@ -11,4 +11,5 @@ RUN sudo apt-get update && \
     sudo ./get_helm.sh
 
 RUN echo 'export KUBECONFIG="/workspace/kubernetes-fundamentals/kube-config.yaml"' >> /home/gitpod/.bashrc
+RUN echo 'export KUBE_EDITOR="vim"' >> /home/gitpod/.bashrc
 RUN kubectl completion bash >> $HOME/.bashrc
