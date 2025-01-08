@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: demo 
+  template:
+    metadata:
+      labels:
+        app: demo
+    spec:
+      containers:
+      - name: demo
+        image: docker.io/nginx:latest
+        volumeMounts:
+        - name: data
+          mountPath: /data
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      resources:
+        requests:
+          storage: 1Gi
+      accessModes:
+        - "ReadWriteOnce"
+      storageClassName: "default"

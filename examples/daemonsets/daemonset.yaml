@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: log-shipper
+spec:
+  selector:
+    matchLabels:
+      name: fluentd
+  template:
+    metadata:
+      labels:
+        name: fluentd
+    spec:
+      containers:
+      - name: logshipper
+        image: docker.io/fluentd:v1.18.0-1.0
+        volumeMounts:
+        - name: logs
+          mountPath: /var/log
+      volumes:
+      - name: logs
+        hostPath:
+          path: /var/log
