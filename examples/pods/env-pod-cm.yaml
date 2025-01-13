@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: env-example
+spec:
+  containers:
+  - image: marcmer/demo-app:v1
+    name: demo-app
+    env:
+      - name: LOG_LEVEL
+        valueFrom:
+          configMapKeyRef:
+            name: app-env
+            key: log_level
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-env
+data:
+  log_level: info
+  
+
